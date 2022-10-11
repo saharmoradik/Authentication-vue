@@ -1,47 +1,32 @@
 <template>
-  <nav class="bg-gray-100 fixed inset-x-0">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex justify-between">
-        <div class="flex space-x-4">
-          <!-- logo -->
-          <div>
-            <a
-              href="#"
-              class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
-            >
-              <i class="bx bxl-medium-old mr-1 text-xl mb-1 text-blue-400"></i>
-              <span class="font-bold">App</span>
-            </a>
-          </div>
-          <!-- primary nav -->
-          <div class="hidden md:flex items-center space-x-1">
-            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900"
-              >Home</a
-            >
-          </div>
-        </div>
-        <!-- secondary nav -->
-        <div class="hidden md:flex items-center space-x-1">
-          <a href="" class="py-5 px-3">Login</a>
-          <a
-            href=""
-            class="py-2 px-3 bg-yellow-400 text-white hover:bg-yellow-300 text-sm hover:text-yellow-800 rounded transition duration-300"
-            >Signup</a
-          >
-        </div>
-        <!-- mobile button goes here -->
-        <div class="md:hidden flex items-center">
-          <button class="mobile-menu-button focus:outline-none">
-            <i class="bx bx-menu text-3xl mt-1"></i>
-          </button>
-        </div>
+  <div class="container-fluid px-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white py-0 px-0">
+      <a class="navbar-brand" href="#"
+        ><strong><i>App</i></strong></a
+      >
+      <button
+        class="navbar-toggler mr-3"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+        </ul>
       </div>
-    </div>
-    <!-- mobile menu -->
-    <div class="mobile-menu hidden md:hidden">
-      <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -49,3 +34,56 @@ export default {
   name: "NavBar",
 };
 </script>
+
+<style>
+body {
+}
+
+.bg-white {
+  background-color: rgb(214, 202, 202);
+}
+
+.navbar-brand {
+  padding: 11px 20px;
+}
+
+.active {
+  background-color: #fff;
+  color: #000 !important;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.nav-link {
+  color: inherit !important;
+}
+
+.nav-item {
+  padding: 6px 20px;
+  color: rgb(98, 96, 96);
+}
+
+.nav-item:hover {
+  color: #000 !important;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.navbar-collapse.collapse.in {
+  display: block !important;
+}
+
+@media (max-width: 992px) {
+  .right {
+    margin-left: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+}
+</style>
