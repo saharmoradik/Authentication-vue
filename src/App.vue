@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <div><NavBar /></div>
+    <NavBar />
 
     <div class="wraper">
-      <LoginForm />
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import LoginForm from "./components/LoginForm.vue";
+//import LoginForm from "./components/LoginForm.vue";
 export default {
   name: "App",
   components: {
     NavBar,
-    LoginForm,
+    //   LoginForm,
   },
 };
 </script>

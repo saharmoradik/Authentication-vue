@@ -1,32 +1,36 @@
 <template>
-  <div class="container-fluid px-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-white py-0 px-0">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
       <a class="navbar-brand" href="#"
-        ><strong><i>App</i></strong></a
-      >
+        ><img src="../assets/logo.png" alt="Logo" class="img-fluid"
+      /></a>
       <button
-        class="navbar-toggler mr-3"
+        class="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Products</a>
           </li>
         </ul>
+        <div class="d-flex">
+          <button class="btn btn-light ms-3 m-1">Login</button>
+          <button class="btn btn-light ms-3 bg-warning m-1">Sign up</button>
+        </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -36,17 +40,6 @@ export default {
 </script>
 
 <style>
-body {
-}
-
-.bg-white {
-  background-color: rgb(214, 202, 202);
-}
-
-.navbar-brand {
-  padding: 11px 20px;
-}
-
 .active {
   background-color: #fff;
   color: #000 !important;
