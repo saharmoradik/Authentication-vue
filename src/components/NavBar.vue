@@ -18,15 +18,23 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
+            <RouterLink to="/" class="nav-link active" href="#"
+              >Home</RouterLink
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Products</a>
           </li>
         </ul>
         <div class="d-flex">
-          <button class="btn btn-light ms-3 m-1">Login</button>
-          <button class="btn btn-light ms-3 bg-warning m-1">Sign up</button>
+          <RouterLink to="/login" class="btn btn-light ms-3 m-1"
+            >Login</RouterLink
+          >
+          <RouterLink
+            to="/registration"
+            class="btn btn-light ms-3 bg-warning m-1"
+            >Sign up</RouterLink
+          >
         </div>
       </div>
     </div>

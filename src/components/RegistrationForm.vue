@@ -7,7 +7,9 @@
         <h4>Create account</h4>
         <div>
           <span>Already have an account?</span>
-          <a href="#" class="text-decoration-none">Signin</a>
+          <RouterLink to="/login" href="#" class="text-decoration-none"
+            >Signin</RouterLink
+          >
         </div>
 
         <div class="mt-3 px-3">
@@ -82,6 +84,8 @@
 </template>
 
 <script>
+//import axios from "axios";
+
 export default {
   name: "RegistrationForm",
   data() {
@@ -104,8 +108,16 @@ export default {
         password: this.password,
         passwordConfirm: this.passwordConfirm,
       };
-      console.log("submitted");
       console.log(data);
+      /* axios
+        .post("http://localhost:8000/registration", data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      axios.$route.push("/login");*/
     },
   },
 };

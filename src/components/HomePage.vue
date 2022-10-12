@@ -1,5 +1,5 @@
 <template>
-  <h3>Home</h3>
+  <h3>Hi, you are not logged in!</h3>
 </template>
 
 <script>
