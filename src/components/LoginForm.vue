@@ -22,7 +22,9 @@
 
         <div class="px-3">
           <div class="mt-2 form-check d-flex flex-row">
-            <a class="ms-2" href="#"> Forgot Password? </a>
+            <RouterLink to="/forgotPassword" class="ms-2" href="#">
+              Forgot Password?
+            </RouterLink>
           </div>
         </div>
       </div>
