@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="handlerSubmit">
     <div
       class="container-fluid d-flex justify-content-center align-items-center h-100"
     >
@@ -7,11 +7,19 @@
         <h4>Log in</h4>
 
         <div class="mt-3 px-3">
-          <input class="form-control" placeholder="Username" />
+          <input
+            class="form-control"
+            v-model="username"
+            placeholder="Username"
+          />
         </div>
 
         <div class="mt-3 px-3">
-          <input class="form-control" placeholder="Password" />
+          <input
+            class="form-control"
+            v-model="password"
+            placeholder="Password"
+          />
         </div>
 
         <div class="mt-3 d-grid px-3">
@@ -35,6 +43,24 @@
 <script>
 export default {
   name: "LoginForm",
+  data() {
+    return {
+      username: this.username,
+      password: this.password,
+    };
+  },
+  methods: {
+    async handlerSubmit() {
+      fetch(
+        `http://localhost:3000/results?login.username=${this.username}&login.password=${this.password}`
+      )
+        .then((res) => res.json())
+        .then(function (data) {
+          console.log(data);
+        })
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>
 

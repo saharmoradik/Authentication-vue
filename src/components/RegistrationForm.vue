@@ -84,7 +84,7 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "RegistrationForm",
@@ -99,25 +99,20 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      const data = {
+    async handleSubmit() {
+      ///////////////////////////////////////////////////////////////
+
+      const response = await axios.post("http://localhost:8000/registration", {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
         userName: this.userName,
         password: this.password,
         passwordConfirm: this.passwordConfirm,
-      };
-      console.log(data);
-      /* axios
-        .post("http://localhost:8000/registration", data)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      axios.$route.push("/login");*/
+      });
+      console.log(response);
+
+      // axios.$route.push("/login");
     },
   },
 };
