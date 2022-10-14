@@ -7,11 +7,7 @@
         <h4>Log in</h4>
 
         <div class="mt-3 px-3">
-          <input
-            class="form-control"
-            v-model="username"
-            placeholder="Username"
-          />
+          <input class="form-control" v-model="email" placeholder="Email" />
         </div>
 
         <div class="mt-3 px-3">
@@ -41,24 +37,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "LoginForm",
   data() {
     return {
-      username: this.username,
-      password: this.password,
+      email: "",
+      password: "",
     };
   },
   methods: {
     async handlerSubmit() {
-      fetch(
-        `http://localhost:3000/results?login.username=${this.username}&login.password=${this.password}`
+      const response = await axios.post(`results`, {
+        email: this.email,
+        password: this.password,
+      });
+
+      localStorage.setItem("id", response.data.id);
+
+      /*fetch(
+        `http://localhost:3000/results?username=${this.username}&password=${this.password}`
       )
         .then((res) => res.json())
         .then(function (data) {
           console.log(data);
+
+          localStorage.setItem("id", data.id);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err));*/
     },
   },
 };

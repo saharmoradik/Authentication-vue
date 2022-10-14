@@ -100,9 +100,18 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      ///////////////////////////////////////////////////////////////
+      /////////////////////////////Axios//////////////////////////////////
 
-      const response = await axios.post("http://localhost:8000/registration", {
+      /* fetch("http://localhost:3000/results", {
+        method: "POST",
+        headers: {
+          Accepy: "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });*/
+
+      await axios.post(`results`, {
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
@@ -110,9 +119,7 @@ export default {
         password: this.password,
         passwordConfirm: this.passwordConfirm,
       });
-      console.log(response);
-
-      // axios.$route.push("/login");
+      this.$router.push("/login");
     },
   },
 };

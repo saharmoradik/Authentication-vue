@@ -3,6 +3,7 @@ import HomePage from "./components/HomePage";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
 import ForgotPassword from "./components/ForgotPassword";
+import "./axios";
 
 const routes = [
   {
