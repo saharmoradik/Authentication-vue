@@ -49,23 +49,16 @@ export default {
   },
   methods: {
     async handlerSubmit() {
-      const response = await axios.post(`results`, {
+      const user = {
         email: this.email,
         password: this.password,
-      });
-
-      localStorage.setItem("id", response.data.id);
-
-      /*fetch(
-        `http://localhost:3000/results?username=${this.username}&password=${this.password}`
-      )
-        .then((res) => res.json())
-        .then(function (data) {
-          console.log(data);
-
-          localStorage.setItem("id", data.id);
-        })
-        .catch((err) => console.log(err));*/
+      };
+      const response = await axios.get(
+        `results?email=${user.email}&&password=${user.password}`
+      );
+      console.log(response.data[0].id);
+      localStorage.setItem("id", response.data[0].id);
+      this.$router.push("/");
     },
   },
 };

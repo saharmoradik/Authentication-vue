@@ -102,15 +102,6 @@ export default {
     async handleSubmit() {
       /////////////////////////////Axios//////////////////////////////////
 
-      /* fetch("http://localhost:3000/results", {
-        method: "POST",
-        headers: {
-          Accepy: "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(data),
-      });*/
-
       await axios.post(`results`, {
         firstName: this.firstName,
         lastName: this.lastName,

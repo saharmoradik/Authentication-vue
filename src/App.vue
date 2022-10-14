@@ -9,6 +9,7 @@
 </template>
 
 <script>
+localStorage.setItem("id", null);
 import NavBar from "./components/NavBar.vue";
 //import LoginForm from "./components/LoginForm.vue";
 export default {
