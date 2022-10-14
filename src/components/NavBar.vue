@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#"
+      <RouterLink class="navbar-brand" to="/"
         ><img src="../assets/logo.png" alt="Logo" class="img-fluid"
-      /></a>
+      /></RouterLink>
       <button
         class="navbar-toggler"
         type="button"

@@ -17,6 +17,15 @@
       "password": "test",
       "passwordConfirm": "test",
       "id": "yEjbZlF"
+    },
+    {
+      "firstName": "w",
+      "lastName": "w",
+      "email": "w@w.com",
+      "userName": "w",
+      "password": "w",
+      "passwordConfirm": "w",
+      "id": "Ei8dahl"
     }
   ]
 }

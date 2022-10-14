@@ -14,6 +14,7 @@
           <input
             class="form-control"
             v-model="password"
+            type="password"
             placeholder="Password"
           />
         </div>
