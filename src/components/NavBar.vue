@@ -26,7 +26,7 @@
             <a class="nav-link" href="#">Products</a>
           </li>
         </ul>
-        <div class="d-flex">
+        <div class="d-flex" v-if="!user">
           <RouterLink to="/login" class="btn btn-light ms-3 m-1"
             >Login</RouterLink
           >
@@ -36,14 +36,35 @@
             >Sign up</RouterLink
           >
         </div>
+        <div class="d-flex" v-if="user">
+          <a
+            @click.prevent="handlerClick"
+            href="`javascript:viod(0)`"
+            class="btn btn-light ms-3 bg-warning m-1"
+            >log out</a
+          >
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "NavBar",
+
+  methods: {
+    async handlerClick() {
+      console.log("log out click");
+      localStorage.removeItem("id");
+      this.$store.dispatch("user", null);
+      this.$router.push("/login");
+    },
+  },
+  computed: {
+    ...mapGetters(["user"]),
+  },
 };
 </script>
 

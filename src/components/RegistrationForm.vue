@@ -38,16 +38,10 @@
         <div class="mt-3 px-3">
           <input
             class="form-control"
-            v-model="userName"
-            placeholder="Username"
-          />
-        </div>
-        <div class="mt-3 px-3">
-          <input
-            class="form-control"
             v-model="password"
             type="password"
             placeholder="Password"
+            required
           />
         </div>
         <div class="mt-3 px-3">
@@ -56,6 +50,7 @@
             v-model="passwordConfirm"
             type="password"
             placeholder="Password Confirm"
+            required
           />
         </div>
 

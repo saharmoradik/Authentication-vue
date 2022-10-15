@@ -7,7 +7,13 @@
         <h4>Log in</h4>
 
         <div class="mt-3 px-3">
-          <input class="form-control" v-model="email" placeholder="Email" />
+          <input
+            class="form-control"
+            v-model="email"
+            placeholder="Email"
+            required
+          />
+          <div class="invalid-feedback">Please enter your email</div>
         </div>
 
         <div class="mt-3 px-3">
@@ -57,8 +63,9 @@ export default {
       const response = await axios.get(
         `results?email=${user.email}&&password=${user.password}`
       );
-      console.log(response.data[0].id);
+
       localStorage.setItem("id", response.data[0].id);
+      this.$store.dispatch("user", response.data[0].id);
       this.$router.push("/");
     },
   },

@@ -9,15 +9,20 @@
 </template>
 
 <script>
+import axios from "axios";
 localStorage.setItem("id", null);
 import NavBar from "./components/NavBar.vue";
-//import LoginForm from "./components/LoginForm.vue";
+
 export default {
   name: "App",
   components: {
     NavBar,
-
-    //   LoginForm,
+  },
+  async created() {
+    const response = await axios.get(
+      `results?id=${localStorage.getItem("id")}`
+    );
+    this.$store.dispatch("user", response.data[0].id);
   },
 };
 </script>
