@@ -29,6 +29,9 @@
           <button class="btn btn-primary btn-block btn-signup text-uppercase">
             <span>Login</span>
           </button>
+          <div v-if="error" class="alert text-danger">
+            {{ error }}
+          </div>
         </div>
 
         <div class="px-3">
@@ -52,21 +55,26 @@ export default {
     return {
       email: "",
       password: "",
+      error: "",
     };
   },
   methods: {
     async handlerSubmit() {
-      const user = {
-        email: this.email,
-        password: this.password,
-      };
-      const response = await axios.get(
-        `results?email=${user.email}&&password=${user.password}`
-      );
+      try {
+        const user = {
+          email: this.email,
+          password: this.password,
+        };
+        const response = await axios.get(
+          `results?email=${user.email}&&password=${user.password}`
+        );
 
-      localStorage.setItem("id", response.data[0].id);
-      this.$store.dispatch("user", response.data[0].id);
-      this.$router.push("/");
+        localStorage.setItem("id", response.data[0].id);
+        this.$store.dispatch("user", response.data[0].id);
+        this.$router.push("/");
+      } catch {
+        this.error = "Invalid username or password!";
+      }
     },
   },
 };
