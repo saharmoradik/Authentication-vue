@@ -17,6 +17,7 @@
             class="form-control"
             v-model="firstName"
             placeholder="First Name"
+            required
           />
         </div>
         <div class="mt-3 px-3">
@@ -24,6 +25,7 @@
             class="form-control"
             v-model="lastName"
             placeholder="Last Name"
+            required
           />
         </div>
         <div class="mt-3 px-3">
@@ -32,12 +34,16 @@
             v-model="email"
             type="email"
             placeholder="Email"
+            required
           />
+        </div>
+        <div v-if="userExistError" class="alert text-danger p-0 m-0">
+          {{ userExistError }}
         </div>
 
         <div class="mt-3 px-3">
           <input
-            class="form-control"
+            class="form-control border"
             v-model="password"
             type="password"
             placeholder="Password"
@@ -46,7 +52,7 @@
         </div>
         <div class="mt-3 px-3">
           <input
-            class="form-control"
+            class="form-control border"
             v-model="passwordConfirm"
             type="password"
             placeholder="Password Confirm"
@@ -59,6 +65,9 @@
             <span>Signup</span>
           </button>
         </div>
+        <div v-if="passwordError" class="alert text-danger">
+          {{ passwordError }}
+        </div>
 
         <div class="px-3">
           <div class="mt-2 form-check d-flex flex-row">
@@ -67,6 +76,7 @@
               type="checkbox"
               value=""
               id="services"
+              required
             />
             <label class="form-check-label ms-2" for="services">
               I have read and agree to the terms.
@@ -91,21 +101,29 @@ export default {
       userName: "",
       password: "",
       passwordConfirm: "",
+      passwordError: "",
+      userExistError: "",
     };
   },
   methods: {
     async handleSubmit() {
+      const userExist = await axios.get(`results?email=${this.email}`);
+      if (userExist) this.userExistError = "This user alrealy exists!";
       /////////////////////////////Axios//////////////////////////////////
-
-      await axios.post(`results`, {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        userName: this.userName,
-        password: this.password,
-        passwordConfirm: this.passwordConfirm,
-      });
-      this.$router.push("/login");
+      if (this.password === this.passwordConfirm && !this.userExistError) {
+        await axios.post(`results`, {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          userName: this.userName,
+          password: this.password,
+          passwordConfirm: this.passwordConfirm,
+        });
+        this.$router.push("/login");
+      } else {
+        this.passwordError =
+          "Password does not matched.Please enter password correctly!";
+      }
     },
   },
 };
