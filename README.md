@@ -5,7 +5,7 @@
 npm install
 ```
 
-### For running the app anf JSON :
+### For running the vue and JSON :
 ```
 npm run serve
 
