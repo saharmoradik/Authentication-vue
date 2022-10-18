@@ -5,9 +5,11 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### For running the app anf JSON :
 ```
 npm run serve
+
+json-server --watch db.json
 ```
 
 ### Compiles and minifies for production
